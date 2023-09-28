@@ -1,0 +1,61 @@
+  
+/*create table Worker(
+  Worker_ID int,
+  First_Name varchar(50),
+  Last_Name varchar(50),
+  Salary int,
+  Joining_Date datetime,
+  Department varchar(50)
+  );
+
+
+Insert into Worker values (001,'Monika','Arora',100000,'2014-02-20 09:00:00','HR') ;
+Insert into Worker values (002,'Niharika','Verma',8000,'2014-06-11 09:00:00','Admin');
+Insert into Worker values (003,'Vishal','Singhal',300000,'2014-02-20 09:00:00','HR');
+Insert into Worker values (004,'Amitabh','Singh',500000,'2014-02-20 09:00:00','Admin');
+Insert into Worker values (005,'Vivek','Bhati',500000,'2014-06-11 09:00:00','Admin');
+Insert into Worker values (006,'Vipul','Diwan',200000,'2014-06-11 09:00:00','Accountant');
+Insert into Worker values (007,'Satish','Kumar',75000,'2014-01-20 09:00:00','Accountant');
+Insert into Worker values (008,'Geetika','Chauhan',90000,'2014-04-11 09:00:00','Admin');
+*/
+-- Select * From Worker
+--Write an SQL query to find the position of the alphabet (‘a’) in the first name column ‘Amitabh’ from the Worker table.
+--Select INSTR(First_Name,"a") from Worker where First_Name = 'Amitabh';
+
+--Write an SQL query that fetches the unique values of DEPARTMENT from the Worker table and prints its length.
+--Select length(Distinct Department) From Worker;
+
+-- Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+/* Select * From Worker
+Order By First_Name ASC,Department DESC; */
+
+-- Write an SQL query to print details of Workers with DEPARTMENT name as “Admin”.
+--Select * From Worker where Department = 'Admin';
+
+--Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘a’.
+-- Select * From Worker where First_Name like '%a';
+
+--Write an SQL query to print details of the Workers whose SALARY lies between 100000 and 500000.
+--Select * From Worker where salary >= 100000 AND salary <=500000;
+--Select * From Worker where salary between 100000 AND 500000;
+
+--Write an SQL query to print details of the Workers who joined in Feb’2014.
+--Select * From Worker where year(Joining_Date) = 2014 and month(Joining_Date)=02;
+--select * from worker where joining_date like "2014-02%";
+
+--Write an SQL query to fetch worker names with salaries >= 50000 and <= 100000.
+--Select First_Name,Last_Name From Worker where salary >= 50000 and salary <= 100000;
+
+--Write an SQL query to fetch the no. of workers for each department in descending order.
+/*Select department,count(Worker_ID) As Nos_worker
+From Worker
+Group By Department
+Order By Nos_worker DESC */
+
+--Write an SQL query to print details of the Workers who are also Managers.
+--SELECT WORKER.* FROM WORKER INNER JOIN TITLE ON WORKER.worker_id=TITLE.t_id WHERE worker_title='Manager';
+
+--Write an SQL query to fetch duplicate records having matching data in some fields of a table.
+Select Department, count(worker_ID) AS Nos FRom worker
+Group By Department
+Order by Nos
